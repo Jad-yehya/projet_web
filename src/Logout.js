@@ -1,5 +1,5 @@
 import {Component} from "react";
-import style from "../stylesheet/Navbar.module.css"
+import style from "./stylesheet/Navbar.module.css"
 import {Navbar} from "./Navbar";
 
 export class Logout extends Component{
@@ -9,6 +9,6 @@ export class Logout extends Component{
     }
 
     render() {
-        return <button className={style.button} onClick={this.handleClicklogout}>Logout</button>
+        return <button className={style.button} onClick={this.props.handler}>Logout</button>
     }
 }

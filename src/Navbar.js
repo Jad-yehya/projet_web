@@ -1,5 +1,5 @@
 import React from 'react'
-import style from "../stylesheet/Navbar.module.css"
+import style from "./stylesheet/Navbar.module.css"
 import {Loginbtn} from "./Loginbtn";
 import {Logout} from "./Logout";
 
@@ -8,18 +8,24 @@ export class Navbar extends React.Component{
 
     constructor(props) {
         super(props);
-        this.state = {isConnected: true};
+        this.state = {isConnected: false};
         this.current_page = "connexion";
-        this.getConnected = this.getConnected.bind(this);
+        //this.getConnected = this.getConnected.bind(this);
+        //this.setLogout = this.setLogout.bind(this);
+        this.handler = this.handler.bind(this);
+    }
+
+    handler() {
+        this.state.isConnected ? this.setLogout() : this.getConnected()
     }
 
     getConnected = () => {
-        this.state.isConnected = true;
+        this.setState({ isConnected: true});
         this.current_page = "homepage";
     }
 
     setLogout = () => {
-        this.state.isConnected = false;
+        this.setState({ isConnected: false });
         this.current_page = "connexion";
     }
 
@@ -41,7 +47,7 @@ export class Navbar extends React.Component{
                 <input className={style.searchBar} type="text" placeholder="Rechercher"/>
                 {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                 <a href={null}>
-                   {this.state.isConnected ? <Logout callback_logout={this.props.logout}/> : <Loginbtn callback_login={this.props.login}/>}
+                   {this.state.isConnected ? <Logout callback_logout={this.props.logout} handler={this.handler}/> : <Loginbtn callback_login={this.props.login} handler={this.handler}/>}
                 </a>
             </div>
         </header>

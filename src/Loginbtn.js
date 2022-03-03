@@ -1,6 +1,5 @@
-import './App.css';
 import {Component} from "react";
-import style from "../stylesheet/Navbar.module.css";
+import style from "./stylesheet/Navbar.module.css";
 
 export class Loginbtn extends Component {
 
@@ -9,7 +8,13 @@ export class Loginbtn extends Component {
         this.callback_login = this.props.callback_login;
     }
 
+    getConnected = () => {
+        this.setState({ isConnected: true});
+        alert("test");
+        this.current_page = "homepage";
+    }
+
     render() {
-        return <button className={style.button}>Connexion</button>
+        return <button className={style.button} onClick={this.props.handler}>Connexion</button>
     }
 }

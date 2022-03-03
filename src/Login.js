@@ -1,6 +1,5 @@
-import './App.css';
 import {Component} from "react";
-import style from '../stylesheet/Login.module.css'
+import style from './stylesheet/Login.module.css'
 
 export class Login extends Component {
     constructor(props) {
@@ -10,13 +9,12 @@ export class Login extends Component {
 
     render() {
         return <div className={style.div1}>
-            <h1>Connexion</h1>
-            <form className="form">
-                <input id="login" type="text" placeholder="Identifiant"/>
-
-                <input id="password" type="password" placeholder="Mot de passe"/>
-                    <button id="Connexion" type="submit" value="Connexion" formAction="base.html">Connexion</button>
-                    <button id="Annuler" type="submit" formAction="inscription.html">Créez un compte ?</button>
+            <h1 className={style.h1}>Connexion</h1>
+            <form className={style.form}>
+                <input id="login" className={style.input} type="text" placeholder="Identifiant"/>
+                <input id="password" className={style.input} type="password" placeholder="Mot de passe"/>
+                    <button className={style.button} id="Connexion" type="submit" value="Connexion" formAction="base.html">Connexion</button>
+                    <button className={style.button} id="SignIn" type="submit" formAction="inscription.html">Créez un compte ?</button>
             </form>
         </div>
     }
