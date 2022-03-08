@@ -1,5 +1,6 @@
 import {Component} from "react";
 import style from './stylesheet/Login.module.css'
+import {Link} from "react-router-dom";
 
 export class Login extends Component {
     constructor(props) {
@@ -13,8 +14,13 @@ export class Login extends Component {
             <form className={style.form}>
                 <input id="login" className={style.input} type="text" placeholder="Identifiant"/>
                 <input id="password" className={style.input} type="password" placeholder="Mot de passe"/>
-                    <button className={style.button} id="Connexion" type="submit" value="Connexion" formAction="base.html">Connexion</button>
-                    <button className={style.button} id="SignIn" type="submit" formAction="inscription.html">Créez un compte ?</button>
+                <Link to="/">
+                    <button className={style.button} id="Connexion" type="submit" value="Connexion">Connexion</button>
+                </Link>
+
+                <Link to="/Signin">
+                    <button className={style.button} id="SignIn" type="submit">Créez un compte ?</button>
+                </Link>
             </form>
         </div>
     }

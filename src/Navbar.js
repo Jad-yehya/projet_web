@@ -3,6 +3,8 @@ import style from "./stylesheet/Navbar.module.css"
 import {Loginbtn} from "./Loginbtn";
 import {Logout} from "./Logout";
 
+import { Link } from 'react-router-dom';
+
 
 export class Navbar extends React.Component{
 
@@ -30,17 +32,20 @@ export class Navbar extends React.Component{
     }
 
     render() {
-        return <header>
+        return (<header>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-            <a className={style.logo} href={null}>
+            <Link to="/" className={style.logo}>
                 <img className={style.logo} src="" alt="logo"/>
-            </a>
+            </Link>
             <nav>
                 <ul className={style.nav_links}>
-                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                    <li><a href="#">Profil</a></li>
-                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                    <li><a href="#">A Propos</a></li>
+                    <Link to="/Profile">
+                        <li>Profil</li>
+                    </Link>
+
+                    <Link to="/About">
+                        <li>A Propos</li>
+                    </Link>
                 </ul>
             </nav>
             <div>
@@ -50,6 +55,20 @@ export class Navbar extends React.Component{
                    {this.state.isConnected ? <Logout callback_logout={this.props.logout} handler={this.handler}/> : <Loginbtn callback_login={this.props.login} handler={this.handler}/>}
                 </a>
             </div>
-        </header>
+        </header>)
     }
 }
+
+
+/*
+<ul className={style.nav_links}>
+    <Link to="/profile">
+        {/!* eslint-disable-next-line jsx-a11y/anchor-is-valid *!/}
+        <li>Profil</li>
+    </Link>
+
+    <Link to="/about_us">
+        {/!* eslint-disable-next-line jsx-a11y/anchor-is-valid *!/}
+        <li>A Propos</li>
+    </Link>
+</ul>*/

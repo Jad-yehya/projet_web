@@ -1,5 +1,6 @@
 import React from "react";
 import style from './stylesheet/Login.module.css'
+import {Link} from "react-router-dom";
 
 export class Signin extends React.Component {
 
@@ -30,9 +31,13 @@ export class Signin extends React.Component {
                 <label htmlFor="email"/><input className={style.input} id="email" type="email" placeholder="prenom.nom@etu.sorbonne-universite.fr"/>
                 <label htmlFor="telephone"/><input className={style.input} id="telephone" type="tel" placeholder="+33601020304"/>
                 <label htmlFor="date_naissance"/><input className={style.input} id="date_naissance" type="date" placeholder="01/01/2004"/>
-                <button id="cree_compte" type="submit" className={style.button} formAction="inscription.html">Créez un compte</button>
-                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                <a className={style.button} href={null}>Back</a>
+                <Link to="/">
+                    <button id="cree_compte" type="submit" className={style.button}>Créez un compte</button>
+                </Link>
+
+                <Link to="/Login">
+                    <button id="retour" type="submit" className={style.button}>Back</button>
+                </Link>
             </form>
         </div>
     }

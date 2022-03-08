@@ -1,5 +1,6 @@
 import {Component} from "react";
 import style from "./stylesheet/Navbar.module.css";
+import {Link} from "react-router-dom";
 
 export class Loginbtn extends Component {
 
@@ -15,6 +16,15 @@ export class Loginbtn extends Component {
     }
 
     render() {
-        return <button className={style.button} onClick={this.props.handler}>Connexion</button>
+        return(
+            <Link to="/Login">
+                <button className={style.button} onClick={this.props.handler}>Connexion</button>
+            </Link>
+        )
     }
 }
+
+/*
+<Link>
+    <button className={style.button} onClick={this.props.handler}>Connexion</button>
+</Link>*/

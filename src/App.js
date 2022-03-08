@@ -1,31 +1,33 @@
 import './stylesheet/App.css';
-import {Component} from "react";
+import React, {Component} from "react";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {Navbar} from "./Navbar";
+import {Signin} from "./Signin";
+import {Login} from "./Login";
+import {About} from "./About";
+import { Profile } from "./Profile"
 
-class MainPage extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {isConnected: true};
-        this.current_page = "connexion";
-        this.getConnected = this.getConnected.bind(this);
+
+class App extends Component {
+    render() {
+       return(
+        <BrowserRouter>
+            <Navbar/>
+            <Routes>
+                <Route path="/" element={null}/>
+                <Route path="/Signin" element={<Signin/>}/>
+                <Route path="/Login" element={<Login/>}/>
+                <Route path="/Profile" element={<Profile/>}/>
+                <Route path="/About" element={<About/>}/>
+            </Routes>
+        </BrowserRouter>
+       )
     }
-
-    getConnected = () => {
-        this.state.isConnected = true;
-        this.current_page = "homepage";
-    }
-
-    setLogout = () => {
-        this.state.isConnected = false;
-        this.current_page = "connexion";
-    }
-
-    /*    render() {
-            return <div>
-                <NavigationPannel login={this.getConnected}
-                                  logout={this.setLogout}
-                                  isConnected={this.state.isConnected}/>
-            </div>
-        }*/
 }
+/*
+<BrowserRouter>
+    <Navbar />
+    <Route path="/Signin" component={Signin}/>
+</BrowserRouter>*/
 
-export default MainPage;
+export default App
