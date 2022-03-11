@@ -2,7 +2,7 @@ import React from 'react'
 import style from "./stylesheet/Navbar.module.css"
 import {Loginbtn} from "./Loginbtn";
 import {Logout} from "./Logout";
-
+import logo from "./stylesheet/Logo_Netsu.svg";
 import { Link } from 'react-router-dom';
 
 
@@ -34,9 +34,14 @@ export class Navbar extends React.Component{
     render() {
         return (<header>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-            <Link to="/" className={style.logo}>
-                <img className={style.logo} src="" alt="logo"/>
-            </Link>
+            {this.state.isConnected ?
+                <Link to="/Wall" className={style.logo}>
+                    <img className={style.logo} src={logo} alt="logo"/>
+                </Link> :
+                <Link to="/" className={style.logo}>
+                    <img className={style.logo} src={logo} alt="logo"/>
+                </Link>
+            }
             <nav>
                 <ul className={style.nav_links}>
                     <Link to="/Profile">
@@ -52,7 +57,9 @@ export class Navbar extends React.Component{
                 <input className={style.searchBar} type="text" placeholder="Rechercher"/>
                 {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                 <a href={null}>
-                   {this.state.isConnected ? <Logout callback_logout={this.props.logout} handler={this.handler}/> : <Loginbtn callback_login={this.props.login} handler={this.handler}/>}
+                   {this.state.isConnected ?
+                   <Link to="/"><Logout callback_logout={this.props.logout} handler={this.handler}/> </Link>: <Loginbtn callback_login={this.props.login} handler={this.handler}/>}
+
                 </a>
             </div>
         </header>)
