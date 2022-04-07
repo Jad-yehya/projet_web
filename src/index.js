@@ -1,13 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
-
 import App from "./App";
+import { createStore } from "redux";
+import allReducers from "./reducers"
+import { Provider } from "react-redux";
+
+
+// TODO : Regler le problème de store ici
+const store = createStore(allReducers);
+
+
 
 ReactDOM.render(
-    <React.StrictMode>
+    <Provider store={store}>
         <App/>
-    </React.StrictMode>,
+    </Provider>,
     document.getElementById('root')
 );
 

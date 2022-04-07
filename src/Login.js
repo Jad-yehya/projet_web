@@ -1,21 +1,21 @@
-import {Component} from "react";
 import style from './stylesheet/Login.module.css';
 import {Link} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {logger} from "./actions";
 
-export class Login extends Component {
-    constructor(props) {
-        super(props);
-        this.callback_login = this.props.callback_login;
-    }
+export function Login(){
 
-    render() {
-        return <div className={style.div1}>
+    //const isLogged = useSelector(state => state.isLogged);
+    const dispatch = useDispatch();
+
+    return(
+        <div className={style.div1}>
             <h1 className={style.h1}>Connexion</h1>
             <form className={style.form}>
                 <input id="login" className={style.input} type="text" placeholder="Identifiant"/>
                 <input id="password" className={style.input} type="password" placeholder="Mot de passe"/>
                 <Link to="/Wall">
-                    <button className={style.button} id="Connexion" type="submit" value="Connexion">Connexion</button>
+                    <button className={style.button} id="Connexion" type="submit" value="Connexion" onClick={() => dispatch(logger())}>Connexion</button>
                 </Link>
 
                 <Link to="/Signin">
@@ -23,5 +23,6 @@ export class Login extends Component {
                 </Link>
             </form>
         </div>
-    }
+    )
+
 }

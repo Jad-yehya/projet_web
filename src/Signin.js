@@ -1,10 +1,15 @@
 import React from "react";
 import style from './stylesheet/Login.module.css'
 import {Link} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {logger} from "./actions";
 
-export class Signin extends React.Component {
 
-    render() {
+export function Signin() {
+
+        //const isLogged = useSelector(state => state.isLogged);
+        const dispatch = useDispatch()
+
         return <div className={style.div1}>
             <h1 className={style.h1}>Inscription</h1>
             <form className={style.form}>
@@ -16,7 +21,7 @@ export class Signin extends React.Component {
                 <label htmlFor="pass_verif"/><input className={style.input} id="pass_verif" type="password"
                                                            placeholder="Confirmez le mot de passe"/>
                 <label htmlFor="cursus"/>
-                <select className={style.select} id="cursus">
+                <select className={style.select} id="cursus" defaultValue="">
                     <option value="" disabled selected>Cursus</option>
                     <option value="0">Informatique</option>
                     <option value="1">Chimie</option>
@@ -32,7 +37,7 @@ export class Signin extends React.Component {
                 <label htmlFor="telephone"/><input className={style.input} id="telephone" type="tel" placeholder="+33601020304"/>
                 <label htmlFor="date_naissance"/><input className={style.input} id="date_naissance" type="date" placeholder="01/01/2004"/>
                 <Link to="/">
-                    <button id="cree_compte" type="submit" className={style.button}>Créez un compte</button>
+                    <button id="cree_compte" type="submit" className={style.button} onClick={() => {dispatch(logger())}}>Créez un compte</button>
                 </Link>
 
                 <Link to="/Login">
@@ -40,5 +45,4 @@ export class Signin extends React.Component {
                 </Link>
             </form>
         </div>
-    }
 }

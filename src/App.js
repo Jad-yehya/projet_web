@@ -29,10 +29,5 @@ class App extends Component {
        )
     }
 }
-/*
-<BrowserRouter>
-    <Navbar />
-    <Route path="/Signin" component={Signin}/>
-</BrowserRouter>*/
 
 export default App

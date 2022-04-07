@@ -1,9 +1,9 @@
-import {Component, useEffect, useState} from "react";
+import {useState} from "react";
 
 export const Stats = () => {
     const [stats, setStats] = useState({amis: 0});
 
-    const getStats = () => {
+/*    const getStats = () => {
         // Appel API pour récupérer les stats
         const namis = null;
         setStats({amis: namis});
@@ -11,7 +11,7 @@ export const Stats = () => {
 
     useEffect(()=> {
         getStats();
-    })
+    })*/
 
     return (
         <div>
