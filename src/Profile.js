@@ -1,4 +1,3 @@
-import style from './stylesheet/Profile.module.css'
 import {Wall} from "./Wall";
 import {Stats} from "./Stats";
 import {useSelector} from "react-redux";

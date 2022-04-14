@@ -36,7 +36,7 @@ export function Signin() {
                 <label htmlFor="email"/><input className={style.input} id="email" type="email" placeholder="prenom.nom@etu.sorbonne-universite.fr"/>
                 <label htmlFor="telephone"/><input className={style.input} id="telephone" type="tel" placeholder="+33601020304"/>
                 <label htmlFor="date_naissance"/><input className={style.input} id="date_naissance" type="date" placeholder="01/01/2004"/>
-                <Link to="/">
+                <Link to="/Wall">
                     <button id="cree_compte" type="submit" className={style.button} onClick={() => {dispatch(logger())}}>Créez un compte</button>
                 </Link>
 
