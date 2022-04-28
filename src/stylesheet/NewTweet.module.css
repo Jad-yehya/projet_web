@@ -10,8 +10,26 @@
     font-size: 1.5em;
     font-weight: bold;
     background-color: whitesmoke;
+    padding: 0.5em;
 }
 
 .TweetContent{
     resize: none;
+    width: 95%;
+    height: 100%;
+    padding: 0.5em;
+}
+
+.TweetButton{
+    padding: 9px 25px;
+    margin: 1em;
+    background-color: rgba(9,0, 156, 1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.TweetButton:hover {
+    background-color: rgba(251, 58, 99, 0.8);
 }
