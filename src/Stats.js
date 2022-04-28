@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import axios from "axios"
 import {Link} from "react-router-dom";
 
-const baseURL = "http://localhost:4000/Stats/"
+const baseURL = "http://localhost:4000/user/Stats/"
 
 export const Stats = () => {
     const [stats, setStats] = useState({amis: 0});
@@ -17,7 +17,7 @@ export const Stats = () => {
 
     useEffect(()=> {
         getStats();
-    })
+    }, []);
 
     if (Stats.amis === 0) Stats.amis = -1;
 
