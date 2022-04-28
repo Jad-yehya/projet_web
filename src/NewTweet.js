@@ -1,34 +1,26 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import style from './stylesheet/NewTweet.module.css';
 
 
 function NewTweet(props) {
 
     const [text, setText] = useState({title: '', content: ''});
 
-    const handleChange = (event) => {
-        setText({...text, [event.target.name]: event.target.value});
-    }
+    useEffect(() => {
+        console.log(text)
+    }, [text]);
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        props.addTweet(text);
-        setText({title: '', content: ''});
-    }
+    
 
     return (
-        <div className="newTweet">
-            <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label htmlFor="title">Title</label>
-                    <input type="text" className="form-control" id="title" name="title" value={text.title} onChange={handleChange}/>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="content">Content</label>
-                    <textarea className="form-control" id="content" name="content" value={text.content} onChange={handleChange}/>
-                </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
-            </form>
+        <div className={style.tweet_box}>
+            <div className={style.title}>
+                <input type="text" placeholder="Titre" value={text.title} onChange={(e) => setText({...text, title: e.target.value})}/>
+            </div>
+            <div className={style.TweetContent}>
+                <textarea className={style.TweetContent} placeholder="Content" value={text.content} onChange={(e) => setText({...text, content: e.target.value})}/>
+            </div>
         </div>
     )
 

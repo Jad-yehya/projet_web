@@ -1,0 +1,17 @@
+.tweet_box {
+    border: solid 1px;
+    border-radius: 9px;
+    width: 50vw;
+    padding: 2em;
+    margin: 2em;
+}
+
+.title {
+    font-size: 1.5em;
+    font-weight: bold;
+    background-color: whitesmoke;
+}
+
+.TweetContent{
+    resize: none;
+}
