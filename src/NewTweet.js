@@ -27,7 +27,7 @@ function NewTweet(props) {
     return (
         <div className={style.tweet_box}>
             <div className={style.title}>
-                <input type="text" placeholder="Titre" value={text.title} onChange={(e) => setText({...text, title: e.target.value})}/>
+                <input className={style.title} type="text" placeholder="Titre" value={text.title} onChange={(e) => setText({...text, title: e.target.value})}/>
             </div>
             <div className={style.TweetContent}>
                 <textarea className={style.TweetContent} placeholder="Content" value={text.content} onChange={(e) => setText({...text, content: e.target.value})}/>
@@ -35,6 +35,7 @@ function NewTweet(props) {
             <button className={style.TweetButton} onClick={
                 (e) => {
                     handleSubmit(e);
+                    setText({title: '', content: ''});
                 }
             }>Tweet</button>
         </div>

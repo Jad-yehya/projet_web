@@ -3,12 +3,21 @@ import style from './stylesheet/Login.module.css'
 import {Link} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {logger} from "./actions";
-
+import axios from "axios";
 
 export function Signin() {
 
-        //const isLogged = useSelector(state => state.isLogged);
+        const baseURL = "http://localhost:4000/"
         const dispatch = useDispatch()
+
+        const postNewUser = () => {
+            axios.post(baseURL + "user/createUser")
+                    .then((response) => {
+                        console.log(response.data)
+                        dispatch(logger())
+                    })
+        }
+
 
         return <div className={style.div1}>
             <h1 className={style.h1}>Inscription</h1>
@@ -37,7 +46,9 @@ export function Signin() {
                 <label htmlFor="telephone"/><input className={style.input} id="telephone" type="tel" placeholder="+33601020304"/>
                 <label htmlFor="date_naissance"/><input className={style.input} id="date_naissance" type="date" placeholder="01/01/2004"/>
                 <Link to="/Wall">
-                    <button id="cree_compte" type="submit" className={style.button} onClick={() => {dispatch(logger())}}>Créez un compte</button>
+                    <button id="cree_compte" type="submit" className={style.button} onClick={() => {
+                        postNewUser()
+                    }}>Créez un compte</button>
                 </Link>
 
                 <Link to="/Login">
